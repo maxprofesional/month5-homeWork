@@ -1,0 +1,20 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.cardList {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid rgb(4, 119, 220);
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+
+  padding: 40px;
+}
