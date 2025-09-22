@@ -1,0 +1,37 @@
+/* cartList.module.scss */
+
+.card_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.input_city {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+
+  font-size: 16px;
+  font-family: inherit;
+
+  border: 2px solid #ccc;
+  border-radius: 12px;
+
+  outline: none;
+  transition: all 0.3s ease;
+
+  background-color: #f9f9f9;
+  color: #333;
+
+  &::placeholder {
+    color: #aaa;
+    font-style: italic;
+  }
+
+  &:focus {
+    border-color: #4f8cff;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(79, 140, 255, 0.3);
+  }
+}
