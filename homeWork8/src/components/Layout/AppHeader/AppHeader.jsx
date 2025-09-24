@@ -6,7 +6,7 @@ export const AppHeader = () => {
   const menuItems = [
     { key: "1", label: <Link to="/">Главная</Link> },
     { key: "2", label: <Link to="/about">О нас</Link> },
-    { key: "3", label: <Link to="/post">Посты</Link> },
+    { key: "3", label: <Link to="/posts">Посты</Link> },
   ];
   return (
     <Header

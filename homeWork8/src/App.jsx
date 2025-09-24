@@ -9,6 +9,9 @@ import { Route, Router, Routes } from "react-router-dom";
 import { MainPage } from "./Pages/MainPage/MainPage";
 import { About } from "./Pages/About/About";
 import { NotFound } from "./Pages/NotFound/NotFound";
+import { Layoutr } from "./components/Layout/Layoutr";
+import { PostsPage } from "./Pages/PostsPage/PostsPage";
+import { PostPage } from "./Pages/PostPage";
 
 const { Content } = Layout;
 
@@ -17,18 +20,15 @@ export const URL = "https://dummyjson.com/posts";
 function App() {
   return (
     <Layout>
-      <AppHeader />
-      <Content
-        style={{ padding: "20px", width: 1200, margin: "20vh auto 10vh auto" }}
-      >
-        <Routes>
-          <Route index path="/" element={<MainPage />} />
+      <Routes>
+        <Route path="/" element={<Layoutr />}>
+          <Route index element={<MainPage />} />
           <Route path="/about" element={<About />} />
-          <Route path="/posts" element={<PostList />} />
+          <Route path="/posts" element={<PostsPage />} />
+          <Route path="/post/:id" element={<PostPage />} />
           <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Content>
-      <AppFooter />
+        </Route>
+      </Routes>
     </Layout>
   );
 }

@@ -20,7 +20,6 @@ export const PostList = () => {
     try {
       const response = await axios.get(URL);
       setPosts(response.data.posts);
-      console.log(response.data.posts);
     } catch (e) {
       console.error(e);
     }
