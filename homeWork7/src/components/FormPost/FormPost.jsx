@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Form, Input, Radio } from "antd";
 
-export const FormPost = ({ addPost }) => {
+export const FormPost = ({ addPost, titleRef, bodyRef }) => {
   const [form] = Form.useForm();
-
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -16,12 +15,14 @@ export const FormPost = ({ addPost }) => {
     >
       <Form.Item label="Заголовок">
         <Input
+          ref={titleRef}
           placeholder="Введите заголовок"
           onChange={(e) => setTitle(e.target.value)}
         />
       </Form.Item>
       <Form.Item label="Содержание">
         <Input
+          ref={bodyRef}
           placeholder="ВВедите Содержание"
           onChange={(e) => setDescription(e.target.value)}
         />

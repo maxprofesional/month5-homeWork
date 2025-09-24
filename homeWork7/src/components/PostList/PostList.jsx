@@ -1,6 +1,6 @@
 import Card from "antd/es/card/Card";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { URL } from "../../App";
 import { Post } from "../Post/Post";
 import { FormPost } from "../FormPost/FormPost.jsx";
@@ -8,6 +8,8 @@ import { genTreeStyle } from "antd/es/tree/style/index.js";
 
 const POST_URL = "https://dummyjson.com/posts/add";
 export const PostList = () => {
+  const titleRef = useRef(null);
+  const bodyRef = useRef(null);
   const [posts, setPosts] = useState([]);
 
   const deletePost = (id) => {
@@ -24,6 +26,10 @@ export const PostList = () => {
     }
   };
   const addPost = async (title, body) => {
+    if (title === "" || body === "") {
+      titleRef.current.style.border = "1px solid red";
+      bodyRef.current.style.border = "1px solid red";
+    }
     console.log(title, body);
     try {
       const response = await axios.post(
@@ -54,7 +60,7 @@ export const PostList = () => {
   }, []);
   return (
     <>
-      <FormPost addPost={addPost} />
+      <FormPost addPost={addPost} bodyRef={bodyRef} titleRef={titleRef} />
       <Card title="Posts">
         {posts.map((item) => (
           <Post key={item.id} post={item} deletePost={deletePost} />

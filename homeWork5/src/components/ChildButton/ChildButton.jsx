@@ -1,30 +1,8 @@
-import { useEffect, useState } from "react";
-import cls from "./WeatherSearch.module.scss";
-import { Weather } from "../Weather/Weather";
+import React from "react";
 
-export function WeatherSearch() {
-  const [city, setCity] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
+const { memo } = React;
 
-  useEffect(() => {
-    const id = setTimeout(() => {
-      setSelectedCity(city);
-    }, 1000);
-
-    return () => clearTimeout(id);
-  }, [city]);
-  return (
-    <>
-      <div className={cls.card_wrapper}>
-        <input
-          type="text"
-          value={city}
-          placeholder="Введите город..."
-          className={cls.input_city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-      </div>
-      <div>{selectedCity && <Weather city={selectedCity} />}</div>
-    </>
-  );
-}
+export const ChildButton = memo(({ onClick, label }) => {
+  console.log("ChildButton");
+  return <button onClick={onClick}>{label}</button>;
+});
